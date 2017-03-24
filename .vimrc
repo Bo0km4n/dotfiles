@@ -10,6 +10,7 @@ colorscheme molokai
 set number
 set guifont=MS_Gothic:h7
 set guifontwide=MS_Gothic:h7
+set backspace=indent,eol,start
 "()complete
 inoremap { {}<Left>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
