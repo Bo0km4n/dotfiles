@@ -1,4 +1,3 @@
-
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
@@ -6,6 +5,7 @@ endif
 
 " シンタックスハイライト
 syntax on
+set mouse=a
 colorscheme molokai
 set number
 set guifont=MS_Gothic:h7
@@ -25,8 +25,7 @@ inoremap ' ''<LEFT>
 "  タブをタブとして扱う(スペースに展開しない)
  set noexpandtab 
  set softtabstop=0
-" クリップボード
- set clipboard=unnamed,autoselect
+
 " Required:
 set runtimepath^=/Users/Katsuya/.vim/bundle/repos/github.com/Shougo/dein.vim
 
@@ -79,3 +78,4 @@ if dein#check_install()
   call dein#install()
 endif
 "End dein Scripts-------------------------
+
