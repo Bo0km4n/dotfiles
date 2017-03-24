@@ -1,6 +1,5 @@
-# vim
+# dotfiles
 
-* vimの設定ファイル<p>
-  dein.vim追加前提
+* author<p>
+  川部勝也
 
-## TEST
