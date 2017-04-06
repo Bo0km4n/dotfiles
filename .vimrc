@@ -26,7 +26,10 @@ inoremap ' ''<LEFT>
 "  タブをタブとして扱う(スペースに展開しない)
  set noexpandtab 
  set softtabstop=0
-
+" jjでエスケープ 
+ inoremap <silent> jj <ESC>
+ noremap <S-h> 0
+ noremap <S-l> $
 " Required:
 set runtimepath^=/Users/Katsuya/.vim/bundle/repos/github.com/Shougo/dein.vim
 
@@ -58,6 +61,7 @@ call dein#add('Shougo/dein.vim')
     call dein#add('osyo-manga/vim-watchdogs')
     call dein#add('mustardamus/jqapi', {'lazy':1})
     call dein#add('tokuhirom/jsref',   {'lazy':1})
+	call dein#add('fatih/vim-go')
 
 " You can specify revision/branch/tag.
 call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
