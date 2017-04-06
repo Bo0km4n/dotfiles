@@ -59,6 +59,7 @@ call dein#add('Shougo/dein.vim')
     call dein#add('osyo-manga/vim-watchdogs')
     call dein#add('mustardamus/jqapi', {'lazy':1})
     call dein#add('tokuhirom/jsref',   {'lazy':1})
+	call dein#add('fatih/vim-go')
 
 " You can specify revision/branch/tag.
 call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
