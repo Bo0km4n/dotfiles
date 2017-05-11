@@ -2,15 +2,16 @@
 if &compatible
   set nocompatible               " Be iMproved
 endif
-
 " シンタックスハイライト
 syntax on
 set mouse=a
 colorscheme molokai
+set clipboard=unnamed,autoselect
 set number
 set guifont=MS_Gothic:h7
 set guifontwide=MS_Gothic:h7
 set backspace=indent,eol,start
+set tags=./tags
 "()complete
 inoremap { {}<Left>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
@@ -28,8 +29,15 @@ inoremap ' ''<LEFT>
  set softtabstop=0
 " jjでエスケープ 
  inoremap <silent> jj <ESC>
+ inoremap <silent> \^- <ESC>:w<CR>
+ inoremap <silent> -^\ <ESC>:wq<CR>
  noremap <S-h> 0
  noremap <S-l> $
+" Ctrl+k Ctrl+h で呼び出し関数へジャンプ
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+" nnoremap <C-k> :tabnew<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-k> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
+
 " Required:
 set runtimepath^=/Users/Katsuya/.vim/bundle/repos/github.com/Shougo/dein.vim
 
@@ -82,5 +90,6 @@ filetype plugin indent on
 if dein#check_install()
   call dein#install()
 endif
+
 "End dein Scripts-------------------------
 
