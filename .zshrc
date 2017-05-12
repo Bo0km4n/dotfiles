@@ -70,9 +70,6 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=10000
 export GOPATH=$HOME/go
-export AWS_ACCESS_KEY_ID="AKIAI2STU2X73PR7B2YQ"
-export AWS_SECRET_ACCESS_KEY="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"
-export AWS_REGION=ap-northeast-1
 export ELASTICPATH=$HOME/3-shake_dev/elasticsearch-5.0.0
 export PATH=$PATH:$ELASTICPATH
 # Direnv
