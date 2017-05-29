@@ -12,7 +12,6 @@ fi
 bindkey -e # ターミナル上でのkeybind
 zmodload -i zsh/mathfunc
 zmodload -i zsh/complist
-export ZPLUG_HOME=$HOME/.zplug
 autoload -Uz compinit; compinit
 autoload -U promptinit; promptinit
 autoload -Uz colors; colors
@@ -65,25 +64,7 @@ bindkey '^xg' anyframe-widget-cd-ghq-repository
 bindkey '^xk' anyframe-widget-kill
 bindkey '^xe' anyframe-widget-insert-git-branch
 zplug load
-
-
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-
-alias l="ls"
-alias vi="vim"
-alias ll="ls -l"
-alias la="ls -la"
-alias javac='javac -J-Dfile.encoding=UTF-8'
-alias java='java -Dfile.encoding=UTF-8'
-alias syncvi='cp ~/.vimrc ~/vim/.vimrc'
-alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
-alias gore='~/go/bin/gore'
-export HISTFILE="$HOME/.zsh_history"
-export HISTSIZE=10000
-export SAVEHIST=10000
-export GOPATH=$HOME/go
-export ELASTICPATH=$HOME/3-shake_dev/elasticsearch-5.0.0
-export PATH=$PATH:$ELASTICPATH
 # Direnv
 #-----------------------------------------------
 eval "$(direnv hook zsh)"
