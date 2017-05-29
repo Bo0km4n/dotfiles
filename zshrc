@@ -1,3 +1,14 @@
+# 外部ファイルの読み込み
+ZSHHOME="${HOME}/.zsh.d"
+
+if [ -d $ZSHHOME -a -r $ZSHHOME -a \
+     -x $ZSHHOME ]; then
+    for i in $ZSHHOME/*; do
+        [[ ${i##*/} = *.zsh ]] &&
+            [ \( -f $i -o -h $i \) -a -r $i ] && . $i
+    done
+fi
+
 bindkey -e # ターミナル上でのkeybind
 zmodload -i zsh/mathfunc
 zmodload -i zsh/complist
@@ -66,6 +77,7 @@ alias javac='javac -J-Dfile.encoding=UTF-8'
 alias java='java -Dfile.encoding=UTF-8'
 alias syncvi='cp ~/.vimrc ~/vim/.vimrc'
 alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
+alias gore='~/go/bin/gore'
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=10000
