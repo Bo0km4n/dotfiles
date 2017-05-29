@@ -72,7 +72,7 @@ call dein#add('Shougo/dein.vim')
 	call dein#add('fatih/vim-go')
 	call dein#add('mattn/webapi-vim')
 	call dein#add('mattn/gist-vim', {'depends': 'mattn/webapi-vim'})
-
+	call dein#add('davidhalter/jedi-vim')
 " You can specify revision/branch/tag.
 call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
@@ -96,3 +96,4 @@ endif
 "End dein Scripts-------------------------
 
 nnoremap ,n :NERDTree .<CR>
+set tags=./tags;
