@@ -1,5 +1,5 @@
 # dotfiles
 
-* author<p>
-  川部勝也
+### author<p>
+Katsuya_Kawabe twitter -> @bo0kam4n
 
