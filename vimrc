@@ -2,9 +2,11 @@
 if &compatible
   set nocompatible               " Be iMproved
 endif
+:set noswapfile
 " シンタックスハイライト
 syntax on
 set mouse=a
+""colorscheme apprentice
 colorscheme molokai
 set clipboard=unnamed,autoselect
 set number
@@ -12,6 +14,8 @@ set guifont=MS_Gothic:h7
 set guifontwide=MS_Gothic:h7
 set backspace=indent,eol,start
 set tags=./tags
+set re=0
+autocmd vimenter * NERDTree
 "()complete
 inoremap { {}<Left>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
@@ -24,8 +28,8 @@ inoremap ' ''<LEFT>
  set tabstop=4
 " タブを挿入するときの幅
  set shiftwidth=4
-"  タブをタブとして扱う(スペースに展開しない)
- set noexpandtab 
+ set expandtab
+ set smarttab 
  set softtabstop=0
 " jjでエスケープ 
  inoremap <silent> jj <ESC>
@@ -73,6 +77,9 @@ call dein#add('Shougo/dein.vim')
 	call dein#add('mattn/webapi-vim')
 	call dein#add('mattn/gist-vim', {'depends': 'mattn/webapi-vim'})
 	call dein#add('davidhalter/jedi-vim')
+	call dein#add('thinca/vim-quickrun')
+	call dein#add('Shougo/vimproc')
+	call dein#add('simeji/winresizer')
 " You can specify revision/branch/tag.
 call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
