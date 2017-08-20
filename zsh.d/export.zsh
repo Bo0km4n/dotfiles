@@ -7,3 +7,4 @@ export PATH=$PATH:$ELASTICPATH
 export PATH=$PATH:$GOPATH/bin
 export ZPLUG_HOME=$HOME/.zplug
 export PYTHONDONTWRITEBYTECODE=1
+export PATH=/usr/local:$PATH
