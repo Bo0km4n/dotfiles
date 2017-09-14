@@ -16,4 +16,3 @@ let g:go_highlight_interfaces = 1
 cnoremap goi GoImport<space>
 cnoremap gor GoRename<space>
 cnoremap god GoDrop<space>
-

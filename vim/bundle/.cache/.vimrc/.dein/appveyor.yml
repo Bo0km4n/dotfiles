@@ -1,45 +1,16 @@
----
-version: '{build}'
-shallow_clone: true
+version:     '{build}'
+clone_depth: 1
 environment:
-  global:
-    AUTH_TOKEN:
-      secure: rKd6JLXUIl3vcA8d0S9w14bl+uvUlZLt0d1M8bmlOh+owQqr5c40+/4ITCNBpHG3
-    VIMVER: 80
-  matrix:
-  - COMPILER: msvc
-    CPU: i386
-    ENV: /x86
-    BIT: 32
-  - COMPILER: msvc
-    CPU: AMD64
-    ENV: /x64
-    BIT: 64
-  - COMPILER: cygwin
-  #- COMPILER: mingw
-  #  BIT: 32
-  - COMPILER: msys2
-    MSYS2_ARCH: i686
-    MSYS2_DIR: msys64
-    MSYSTEM: MINGW32
-    BIT: 32
-  - COMPILER: msys2
-    MSYS2_ARCH: x86_64
-    MSYS2_DIR: msys64
-    MSYSTEM: MINGW64
-    BIT: 64
-build_script:
-  - '%APPVEYOR_BUILD_FOLDER%\tools\appveyor.bat'
+    matrix:
+        - VIM_URL: http://files.kaoriya.net/vim/vim74-kaoriya-win64.zip
+install:
+    - 'cd %APPVEYOR_BUILD_FOLDER%'
+    - 'appveyor DownloadFile %VIM_URL% -FileName %TEMP%\vim.zip'
+    - '7z x -o%TEMP% %TEMP%\vim.zip > nul'
+    - ps: $Env:THEMIS_VIM = (Get-ChildItem $Env:TEMP | Select-Object -First 1).FullName + '\vim.exe'
+    - 'git -c advice.detachedHead=false clone https://github.com/thinca/vim-themis --quiet --branch v1.5 --single-branch --depth 1 %TEMP%\vim-themis'
+build: off
 test_script:
-  - '%APPVEYOR_BUILD_FOLDER%\tools\appveyor.bat test'
-artifacts:
-  - path: lib/vimproc_*.dll
-    name: vimproc.dll
-deploy:
-  provider: GitHub
-  description: vimproc
-  auth_token:
-    secure: rKd6JLXUIl3vcA8d0S9w14bl+uvUlZLt0d1M8bmlOh+owQqr5c40+/4ITCNBpHG3
-  on:
-    appveyor_repo_tag: true
-    COMPILER: msvc
+    - '%THEMIS_VIM% --version'
+    - '%TEMP%\vim-themis\bin\themis.bat tests/ -r --reporter dot'
+deploy: off

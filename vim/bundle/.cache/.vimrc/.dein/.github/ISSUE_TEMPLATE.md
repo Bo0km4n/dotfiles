@@ -1,37 +1,25 @@
-_To assist in resolving your issue, provide as much information as possible, in place of the ellipses (`…`) below._
+### Behavior
 
----
-**Environment:** _Describe your Vim/NERDTree setup._
+Write here what's happening and what you're expecting instead of...
 
->* Operating System: …
->* Vim version `:version`: …
->* NERDTree version `git rev-parse --short HEAD`: …
->* NERDTree settings applied in your vimrc, if any:
->
->   ```
->   …
->   ```
+### Steps to reproduce:
 
-**Process:** _List the steps that will recreate the issue._
+Please create a reproducible case of your problem. If this step is
+not provided, the issue will be **closed**
 
->1. …
+Re produce it with a minimal `vimrc` with all plugins disabled and
+only `vim-go` enabled:
 
-**Current Result:** _Describe what you you currently experience from this process._
+1.
+2.
+3.
 
->…
+### Configuration
 
-**Expected Result:** _Describe what you would expect to have resulted from this process._
+Add here your current configuration and additional information that might be
+useful, such as:
 
->…
-
----
-**Optional**
-
-**Screenshot(s):**
-
->…
-
-**Possible Fix:** _(Have you poked around in the code?)_
-
->…
-
+* `vimrc` you used to reproduce
+* vim version:
+* vim-go version:
+* go version:

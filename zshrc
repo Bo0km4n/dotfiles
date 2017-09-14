@@ -66,3 +66,4 @@ bindkey '^xe' anyframe-widget-insert-git-branch
 zplug load
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 export PATH=$PATH:/Users/bo0km4n/.nodebrew/current/bin
+export PATH=/usr/local/bin:/usr/local/share/python:$PATH
