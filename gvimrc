@@ -4,6 +4,7 @@ set guifont=Monaco:h9
 set guifontwide=Monaco:h9
 " maximize window
 set lines=80 columns=250
+set imdisable
 
 " reset guioption
 set guioptions&

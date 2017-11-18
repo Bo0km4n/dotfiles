@@ -1,58 +1,11 @@
-ifeq ($(OS),Windows_NT)
-    # Need to figure out if Cygwin/Mingw is installed
-    SYS := $(shell gcc -dumpmachine)
-    ifeq ($(findstring cygwin, $(SYS)),cygwin)
-        PLATFORM = cygwin
-    endif
-    ifeq ($(findstring msys, $(SYS)),msys)
-        PLATFORM = cygwin
-    endif
-    ifeq ($(findstring mingw, $(SYS)),mingw)
-        ifeq ($(findstring x86_64, $(SYS)),x86_64)
-            PLATFORM = mingw64
-        else
-            PLATFORM = mingw32
-        endif
-    endif
-else
-    # Grab the output of `uname -s` and switch to set the platform
-    UNAME_S := $(shell uname -s)
-    ifeq ($(UNAME_S),Linux)
-        PLATFORM = unix
-    endif
-    ifeq ($(UNAME_S),FreeBSD)
-        MAKE = make # BSD Make
-        PLATFORM = bsd
-    endif
-    ifeq ($(UNAME_S),DragonFly)
-        MAKE = make # BSD Make
-        PLATFORM = bsd
-    endif
-    ifeq ($(UNAME_S),NetBSD)
-        MAKE = make # BSD Make
-        PLATFORM = bsd
-    endif
-    ifeq ($(UNAME_S),OpenBSD)
-        MAKE = make # BSD Make
-        PLATFORM = bsd
-    endif
-    ifeq ($(UNAME_S),Darwin)
-        PLATFORM = mac
-    endif
-    ifeq ($(UNAME_S),SunOS)
-        PLATFORM = sunos
-    endif
-endif
+all : webapi-vim.zip
 
-# Verify that the PLATFORM was detected
-ifndef PLATFORM
-    $(error Autodetection of platform failed, please use appropriate .mak file)
-endif
+remove-zip:
+	-rm -f doc/tags
+	-rm -f webapi-vim.zip
 
-# Invoke the platform specific make files
-all:
-	$(MAKE) -f make_$(PLATFORM).mak
+webapi-vim.zip: remove-zip
+	zip -r webapi-vim.zip autoload doc README
 
-clean:
-	$(MAKE) -f make_$(PLATFORM).mak clean
-
+release: webapi-vim.zip
+	vimup update-script webapi.vim

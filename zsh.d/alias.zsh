@@ -16,6 +16,8 @@ alias dcrapi='docker-compose restart reckoner-web-api'
 alias dcgotest='docker-compose run reckoner-web-api ginkgo -r'
 alias cb='circleci build'
 alias godep='/usr/local/Cellar/godep/79_5/bin/godep'
+alias pip3='~/.pyenv/shims/pip3'
+alias dev='cd ~/dev/github/Bo0km4n'
 
 ## docker cli
 alias docker-rm-exited='docker rm $(docker ps -a --filter 'status=exited' -q)'
